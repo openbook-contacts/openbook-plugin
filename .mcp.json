@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "openbook": {
+      "type": "http",
+      "url": "https://api.withopenbook.com/mcp"
+    }
+  }
+}

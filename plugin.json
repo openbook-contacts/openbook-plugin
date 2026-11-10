@@ -1,0 +1,99 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "openbook",
+  "version": "1.0.0",
+  "description": "Shared contact directories for clubs, schools and companies, on everyone's phone.",
+  "author": {
+    "name": "Openbook Contacts Inc.",
+    "email": "support@withopenbook.com",
+    "url": "https://withopenbook.com"
+  },
+  "homepage": "https://withopenbook.com",
+  "keywords": ["contacts", "directory", "address book", "groups", "phone"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Openbook",
+        "shortDescription": "Shared phone contact groups",
+        "longDescription": "Openbook gives a club, school, team or company one shared contact directory that shows up in everyone's phone contacts, and gives every person a directory of their own.\n\nWith Openbook in ChatGPT you can start a directory for your group, make groups like Parents or Coaches, add and update contacts, or hand ChatGPT a spreadsheet, a photo of a sign-up sheet, an email thread or an email group like a Google Group or a groups.io group and check the contacts it makes before they're added, decide which fields each group sees (Visible, Request required or Hidden), pick the color of each group's QR photo, the code people scan to join, with a preview first, invite people by email or with a text you send yourself, answer and make requests for a contact's number or email, and put Openbook on your iPhone, iPad, Mac or Android phone, where the contacts stay current on their own. For each group, you choose whether it shows in your Contacts or only when you search. You can also find someone through people you know, like a plumber or a tutor: nobody sees your contacts, people you know can ask you for one, and nothing is shared unless the person who has the contact says yes.\n\nOpenbook only does what you can do in Openbook: every tool works with the directories and groups your account can reach, and ChatGPT confirms changes with you before making them. Openbook is invite only for now: you're invited once someone who uses Openbook invites you or adds your mobile number to one of their groups. It works with US mobile numbers: you sign in with your mobile number, a passkey or a code we email you, and new users add their name and an email, which a code confirms. Openbook texts only codes, and notices to people who turn texts on themselves, and it never sells anything in ChatGPT.",
+        "developerName": "Openbook Contacts Inc.",
+        "category": "Productivity",
+        "capabilities": ["Find and update contacts", "Groups and access", "Invites", "Requests and sharing", "Phone setup"],
+        "websiteURL": "https://withopenbook.com",
+        "supportURL": "https://withopenbook.com/connect",
+        "privacyPolicyURL": "https://withopenbook.com/privacy",
+        "termsOfServiceURL": "https://withopenbook.com/terms",
+        "defaultPrompt": [
+          "Set up a shared contact directory for my soccer club.",
+          "Add Hana Sato to Parents with her mobile number.",
+          "Put Openbook on my iPhone."
+        ],
+        "brandColor": "#0B6870",
+        "brandColorDark": "#55C4C7",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png"
+      },
+      "onboardingSkill": "./skills/get-started/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Ask: \"What's the number for the head tennis pro at Lakeside Club?\"",
+              "prompt": "What's the number for the head tennis pro at Lakeside Club?",
+              "tools_triggered": "search_contacts, get_contact",
+              "expected_behavior": "Finds Daniel Park, Head tennis pro, in Lakeside Club • Front Desk, and gives his work number, (415) 555-0112, and his mobile, (415) 555-0113, which the account sees as Lakeside Club's owner."
+            },
+            {
+              "description": "Ask: \"Who drives the Wednesday carpool in Room 4? I need her cell number.\" When it offers to ask Nora Quinn for it, say yes.",
+              "prompt": "Who drives the Wednesday carpool in Room 4? I need her cell number.",
+              "tools_triggered": "search_contacts, get_contact, request_field",
+              "expected_behavior": "Finds Priya Nair in Hillcrest Elementary • Room 4 Parents from her note, says her mobile takes a request there and that Nora Quinn can say yes, and once the user agrees, sends Nora the request with the user's reason. It never shows or guesses the number, and says nothing is shared until Nora answers."
+            },
+            {
+              "description": "Ask: \"Nora Quinn asked me for Maya Lee's cell number. Go ahead and share it with her.\" When it asks you to confirm, say yes.",
+              "prompt": "Nora Quinn asked me for Maya Lee's cell number. Go ahead and share it with her.",
+              "tools_triggered": "review_requests",
+              "expected_behavior": "Finds Nora's waiting request for Maya Lee's mobile, with her reason, to sign her daughter up for the Saturday junior clinic, confirms, then grants it and says Nora now sees Maya's mobile, and nobody else gains it."
+            },
+            {
+              "description": "Ask: \"Add Leo Kim to Tennis at Lakeside, cell (415) 555-0128, email leo.kim@example.com.\" When it asks you to confirm, say yes.",
+              "prompt": "Add Leo Kim to Tennis at Lakeside, cell (415) 555-0128, email leo.kim@example.com.",
+              "tools_triggered": "add_contact",
+              "expected_behavior": "Confirms, then adds Leo Kim with that mobile and email to Lakeside Club • Tennis, and says people in Tennis see his email and must request his mobile."
+            },
+            {
+              "description": "Ask: \"Nora Quinn suggested a new email for Kenji Mori. Accept it.\" When it asks you to confirm, say yes.",
+              "prompt": "Nora Quinn suggested a new email for Kenji Mori. Accept it.",
+              "tools_triggered": "review_suggestions",
+              "expected_behavior": "Finds Nora's waiting suggestion for Kenji Mori, kenji@example.com in place of kenji.mori@example.com, with her reason, that Kenji gave it to her at practice, confirms, then accepts it and says Kenji's email is now kenji@example.com wherever his contact shows."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Ask: \"Text everyone in Tennis that the courts are closed today.\" Openbook sends no messages, so it shouldn't be used to send one, or claim it did.",
+              "prompt": "Text everyone in Tennis that the courts are closed today.",
+              "expected_behavior": "Doesn't use Openbook to send anything or say a message went out; it can draft the text for the user to send themselves."
+            },
+            {
+              "description": "Ask: \"Who does (415) 555-0199 belong to? Someone keeps calling me from it.\" Openbook isn't a phone number lookup, and never says whose a number is.",
+              "prompt": "Who does (415) 555-0199 belong to? Someone keeps calling me from it.",
+              "expected_behavior": "Doesn't use Openbook to look anyone up by the number or guess who it is; at most it says the number isn't among the user's contacts."
+            },
+            {
+              "description": "Ask: \"Block (415) 555-0199 from calling me.\" Openbook can't block calls: its blocking stops requests from the user's own contacts, so it shouldn't be used here.",
+              "prompt": "Block (415) 555-0199 from calling me.",
+              "expected_behavior": "Doesn't use Openbook's blocking, and says to block the number in the phone's own settings instead."
+            }
+          ]
+        },
+        "demo_recording_url": "https://withopenbook.com/openbook-review-demo.mp4",
+        "commerce": false,
+        "commerce_description": "Openbook sells nothing in ChatGPT and shows no prices, plans or checkout. Organizations that want hosting set it up on Openbook's own billing page."
+      },
+      "publication": {
+        "countries": ["US"],
+        "release_notes": "First release: shared contact directories, groups and field rules, contacts and imports, invites, requests and sharing, requests from others through people you know, phone setup, and each group's QR photo color, previewed before it changes."
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "openbook",
+  "owner": {
+    "name": "Openbook Contacts Inc.",
+    "email": "support@withopenbook.com"
+  },
+  "metadata": {
+    "description": "Openbook: shared contact directories for clubs, schools and companies, on everyone's phone."
+  },
+  "plugins": [
+    {
+      "name": "openbook",
+      "source": "./",
+      "description": "Shared contact directories for clubs, schools and companies, on everyone's phone."
+    }
+  ]
+}
