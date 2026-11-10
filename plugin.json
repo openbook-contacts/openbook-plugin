@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "openbook",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Shared contact directories for clubs, schools and companies, on everyone's phone.",
   "author": {
     "name": "Openbook Contacts Inc.",
