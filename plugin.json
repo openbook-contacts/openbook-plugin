@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "openbook",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "description": "Shared contact directories for clubs, schools and companies, on everyone's phone.",
   "author": {
     "name": "Openbook Contacts Inc.",
@@ -15,10 +15,10 @@
       "interface": {
         "displayName": "Openbook",
         "shortDescription": "Shared phone contact groups",
-        "longDescription": "Openbook gives a club, school, team or company one shared contact directory that shows up in everyone's phone contacts, and gives every person a directory of their own.\n\nWith Openbook in ChatGPT you can start a directory for your group, make groups like Parents or Coaches, add and update contacts, or hand ChatGPT a spreadsheet, a photo of a sign-up sheet, an email thread or an email group like a Google Group or a groups.io group and check the contacts it makes before they're added, decide which fields each group sees (Visible, Request required or Hidden), pick the color of each group's QR photo, the code people scan to join, with a preview first, invite people by email or with a text you send yourself, answer and make requests for a contact's number or email, and put Openbook on your iPhone, iPad, Mac or Android phone, where the contacts stay current on their own. For each group, you choose whether it shows in your Contacts or only when you search. You can also find someone through people you know, like a plumber or a tutor: nobody sees your contacts, people you know can ask you for one, and nothing is shared unless the person who has the contact says yes.\n\nOpenbook only does what you can do in Openbook: every tool works with the directories and groups your account can reach, and ChatGPT confirms changes with you before making them. Openbook is invite only for now: you're invited once someone who uses Openbook invites you or adds your mobile number to one of their groups. It works with US mobile numbers: you sign in with your mobile number, a passkey or a code we email you, and new users add their name and an email, which a code confirms. Openbook texts only codes, and notices to people who turn texts on themselves, and it never sells anything in ChatGPT.",
+        "longDescription": "Openbook gives a club, school, team or company one shared contact directory that shows up in everyone's phone contacts, and gives every person a directory of their own.\n\nWith Openbook in ChatGPT you can start a directory for your group, make groups like Parents or Coaches, add and update contacts, or hand ChatGPT a spreadsheet, a photo of a sign-up sheet, an email thread or an email group like a Google Group or a groups.io group and check the contacts it makes before they're added, decide which fields each group sees (Visible, Request required or Hidden), pick the color of each group's QR photo, the code people scan to join, with a preview first, invite people by email or with a text you send yourself, answer and make requests for a contact's number or email, and put Openbook on your iPhone, iPad, Mac or Android phone, where the contacts stay current on their own. For each group, you choose whether it shows in your Contacts or only when you search. Each group can keep its own reminders, events and notes, and ChatGPT can list the birthdays coming up in your groups, merge contacts that are one person and undo a change to a contact. You can also find someone through people you know, like a plumber or a tutor: nobody sees your contacts, people you know can ask you for one, and nothing is shared unless the person who has the contact says yes.\n\nOpenbook only does what you can do in Openbook: every tool works with the directories and groups your account can reach, and ChatGPT confirms changes with you before making them. Openbook is invite only for now: you're invited once someone who uses Openbook invites you or adds your mobile number to one of their groups. It works with US mobile numbers: you sign in with your mobile number, a passkey or a code we email you, and new users add their name and an email, which a code confirms. Openbook texts only codes, and notices to people who turn texts on themselves, and it never sells anything in ChatGPT.",
         "developerName": "Openbook Contacts Inc.",
         "category": "Productivity",
-        "capabilities": ["Find and update contacts", "Groups and access", "Invites", "Requests and sharing", "Phone setup"],
+        "capabilities": ["Find and update contacts", "Groups and access", "Invites", "Requests and sharing", "Reminders, events and notes", "Birthdays", "Phone setup"],
         "websiteURL": "https://withopenbook.com",
         "supportURL": "https://withopenbook.com/connect",
         "privacyPolicyURL": "https://withopenbook.com/privacy",
@@ -52,7 +52,7 @@
             {
               "description": "Ask: \"Nora Quinn asked me for Maya Lee's cell number. Go ahead and share it with her.\" When it asks you to confirm, say yes.",
               "prompt": "Nora Quinn asked me for Maya Lee's cell number. Go ahead and share it with her.",
-              "tools_triggered": "review_requests",
+              "tools_triggered": "waiting_requests, review_requests",
               "expected_behavior": "Finds Nora's waiting request for Maya Lee's mobile, with her reason, to sign her daughter up for the Saturday junior clinic, confirms, then grants it and says Nora now sees Maya's mobile, and nobody else gains it."
             },
             {
@@ -64,7 +64,7 @@
             {
               "description": "Ask: \"Nora Quinn suggested a new email for Kenji Mori. Accept it.\" When it asks you to confirm, say yes.",
               "prompt": "Nora Quinn suggested a new email for Kenji Mori. Accept it.",
-              "tools_triggered": "review_suggestions",
+              "tools_triggered": "waiting_suggestions, review_suggestions",
               "expected_behavior": "Finds Nora's waiting suggestion for Kenji Mori, kenji@example.com in place of kenji.mori@example.com, with her reason, that Kenji gave it to her at practice, confirms, then accepts it and says Kenji's email is now kenji@example.com wherever his contact shows."
             }
           ],
@@ -92,7 +92,7 @@
       },
       "publication": {
         "countries": ["US"],
-        "release_notes": "First release: shared contact directories, groups and field rules, contacts and imports, invites, requests and sharing, requests from others through people you know, phone setup, and each group's QR photo color, previewed before it changes."
+        "release_notes": "First release: shared contact directories, groups and field rules, contacts and imports from spreadsheets, photos and email groups, invites, requests and sharing, requests from others through people you know, each group's reminders, events and notes, birthdays coming up, phone setup, and each group's QR photo color, previewed before it changes."
       }
     }
   }

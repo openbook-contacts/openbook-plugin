@@ -1,88 +1,85 @@
 ---
 name: import-from-email
-description: Build an Openbook group from an email group (a Google Group, a groups.io group or any mailing list) or a reply-all thread, reading the person's email with this app's own access: asking where it goes, taking every sender's name and email and the numbers people give about themselves, naming the email group it came from, confirming before adding, then helping people join.
+description: Build an Openbook group from an email group (a Google Group, a groups.io group or any mailing list) or a reply-all thread in as few turns as possible: one pass reading the person's email with this app's own access, one message with every question and a suggestion for each, then the whole job without stopping, its subscribers or every sender's name and email, the numbers people give about themselves, duplicates merged, the email group named and people helped to join, with a checkpoint if the turn ends first.
 ---
 
 # Import from an email group
 
-Use this when the people the person wants in a group are on an email group or a thread: a neighborhood Google Group, a groups.io group, a school's or club's mailing list, a book club's reply-all thread. A subscriber export, a CSV from the email group's own pages, follows `import-a-spreadsheet`, then steps 4 and 10 here.
+Use this when the people the person wants in a group are on an email group or a thread: a neighborhood Google Group, a groups.io group, a school's or club's mailing list, a book club's reply-all thread.
 
-## 1. Find the email group
+**The person's turns are the cost.** Each answer they give, and each “keep going”, is a turn. The whole job takes three: you ask everything at once, they answer, you finish and report. Never stop to show progress, to ask whether to go on, or to ask a question you could have asked in the one message.
 
-- Call `my_access`.
-- Read the email with this app's own access, like a Gmail or Outlook connection the person added here. Openbook never reads anyone's email: what you read stays between the person and this app until they say yes to adding someone. Without that access, ask them to paste or forward the messages, or, for an email group they own or moderate, to download its subscribers as a CSV from its own pages.
-- Find its address and its name: the address its posts go to, like maple-court@googlegroups.com or maplecourt@groups.io, from the To or List-Id of its messages, and its name, from the brackets that start its subjects, like [maplecourt], or its own pages. In Gmail, list:maple-court@googlegroups.com finds its messages. Confirm both with the person.
-- A reply-all thread with no address of its own isn't an email group: go on with the people who wrote to it, with no `email_group` to set, and they can reply to the thread with the group's link at the end.
+Read the email with this app's own access, like a Gmail or Outlook connection the person added here. Openbook never reads anyone's email: what you read stays between the person and this app until they say yes to adding someone. Without that access, ask them to paste or forward the messages, or to attach a subscriber export.
 
-## 2. Gauge its size
+## 1. Gather everything first, in one pass
 
-- Count the different people who posted in the time the person picks, like the last year, and say it: “About 140 people posted to Maple Court since last November.”
-- Posts only find people who write. For an email group they own or moderate, the subscriber export from its own pages has everyone, people who never post too, and imports as in `import-a-spreadsheet`.
+Do all of this before saying anything, in as few calls as you can.
 
-## 3. Ask where it goes
+- **Their directories and groups:** `my_access`.
+- **The email group:** its address, like maple-court@googlegroups.com or maplecourt@groups.io, from the To or List-Id of its messages, and its name, from the brackets that start its subjects, like [maplecourt]. In Gmail, list:maple-court@googlegroups.com finds its messages. A reply-all thread with no address of its own isn't an email group: go on with the people who wrote to it, with no `email_group` to set.
+- **The roster, from senders alone.** Ask the mail search for the largest page it gives and read only each message's From and Reply-To, never its body: that's every sender's name and email in a few calls, where reading each message takes hundreds. Page through to the end of the time the person asked about, or the whole archive.
+  - **Their own address.** A Google Group can send a post From its own address, like “Maya Lee via Maple Court” <maple-court@googlegroups.com>: the person's own is then in Reply-To. groups.io writes one as maya.lee=example.com@groups.io, which is maya.lee@example.com. Without their own address, leave them out.
+  - **Leave out** the email group's own addresses (its owners' and moderators' too, like maplecourt+owner@groups.io), no-reply and bounce senders (noreply, no-reply, mailer-daemon, postmaster), digests and the email group's own notices, the person themselves, and anyone who asked to be left off.
+  - **Names** as people sign, “Maya Lee” rather than maya.lee. One person posting from two addresses is one contact with both.
+- **Numbers, from bodies, in one pass.** Search for messages likely to carry one (cell, mobile, phone, call, text, or digits), then read only those bodies, each once:
+  - **Only what they wrote.** Skip quoted text: lines starting with “>”, and everything after a line like “On Mar 3, 2026, at 9:14 AM, Ruth Park wrote:”, “-----Original Message-----” or a forwarded message's header (“Begin forwarded message:”, or its From, Sent, To and Subject lines).
+  - **Only their own:** in their signature, the lines after their name at the end of what they wrote, or about themselves, like “call me at” or “my cell is”. Never a number they give for someone else, a business or another neighbor.
+  - **US numbers in every format:** 10 digits with an optional +1 or 1, not part of a longer run of digits.
 
-Explain both plainly, suggest one for its size, and let them pick:
+    ```
+    (?<!\d)(?:\+?1[\s.-]?)?\(?([2-9]\d{2})\)?[\s.-]?(\d{3})[\s.-]?(\d{4})(?!\d)
+    ```
 
-- **A directory of its own,** named for the community: `create_organization` with `name` (“Maple Court”), `first_group` for who's in it (“Neighbors”), `rules` and `email_group`. They own it, and everyone who joins sees it under the community's name, “Maple Court • Neighbors” on their phones. They can keep it **Only in search** on their own phones (`update_settings` `groups` with the group's ID and `shown: "only_in_search"`): its contacts turn up when they search in Contacts on an iPhone or iPad, without filling their Contacts with every neighbor. An organization's free plan holds 25 users, so a bigger community needs a plan to let everyone in: say so, with no price, and point to withopenbook.com.
-- **A group of their own in Personal,** like Book Club: `create_organization` with no `name`, and `first_group`, `rules` and `email_group`. Others in it see it by its name alone, “Book Club”. It stays Hidden on the person's own phones until they show it (Show in Contacts, `update_settings` `groups` with `shown: "in_contacts"`), and a group in Personal can't be Only in search. Good for a small circle.
+  - **Labeled by the cue next to it:** M, C, Cell or Mobile is `mobile`; O, Office, W, Work or Direct is `work`; H or Home is `home`; skip Fax. A number with no cue is a question for step 2.
+  - **The newest wins** when someone's signature changed numbers.
+  - Keep where each came from, to say in step 2, never as its label or in a note.
+- **Who's there already:** `search_contacts` in the directory it's going to, with `limit` 500, for the names and emails that match, so step 2 can say who's new and who may be someone already there.
+- **Recommendations,** if the person wants them too: find them in the same pass (`import-recommendations`, steps 2 to 8).
 
-A group they already run that came from this email group takes it with `manage_groups` `update`, its `group` and `email_group`.
+## 2. Ask everything in one message
 
-## 4. Name the email group
+One message, every decision, each with your suggestion, so the person can answer “yes” or change one line. Use the app's choices or a form when it has them. Cover:
 
-- Set `email_group` to the email group's address on the group, confirming the address with the person. Openbook keeps it for the people who manage the group and never shows it to anyone else.
-- Say what it can bring, in these words: “If yours is the first group from this email group that 5 people join, your QR Card becomes a Founding Member card.” Never promise it, and never say whether the email group is on Openbook already: Openbook doesn't say, so you can't know (`founding-member`).
+- **Where it goes.** Suggest one and say why:
+  - **A directory of its own,** named for the community: `create_organization` with `name` (“Maple Court”), `first_group` for who's in it (“Neighbors”), `rules` and `email_group`. Everyone who joins sees it under the community's name, “Maple Court • Neighbors” on their phones, and the person can keep it **Only in search** on their own phones (`update_settings` `groups` with `shown: "only_in_search"`). An organization's free plan holds 25 users, so a bigger community needs a plan to let everyone in: say so, with no price, and point to withopenbook.com.
+  - **A group of their own in Personal,** like Book Club: `create_organization` with no `name`, and `first_group`, `rules` and `email_group`. Good for a small circle. It shows on their own phones from the start.
+  - A group they already run takes `email_group` with `manage_groups` `update`.
+- **The email group's address** for `email_group`, and what it can bring, in these words: “If yours is the first group from this email group that 5 people join, your QR Card becomes a Founding Member card.” Never promise it, and never say whether the email group is on Openbook already.
+- **Who sees what:** suggest `email` Visible, since people on an email group see the addresses of the people who post, and `phone.mobile`, `phone.work` and `phone.home` Request required, since people put a number in a signature for one email, not for a directory.
+- **Who's in:** the count, like “About 140 people posted to Maple Court since last November”, and a subscriber export instead if they own or moderate the email group, which has everyone, people who never post too (step 3).
+- **Names in doubt,** as one list with a rule to apply: “Keep these 6 under the name they post as, like Cindy CU, or leave them out?”
+- **Numbers with no cue,** as one list: “These 4 numbers have no label in the signature. Add them as mobile?”
+- **Likely duplicates** of contacts already there, by the same email or name, as one list: “Dennis Bartlett is in Personal already by email. Add him to Maple Court as the same contact?”
+- **Recommendations** you found, if any, and the group they'd go in.
+- **Helping people join** after: post the group's invite link to the email group themselves, or have Openbook email each person an invite (step 5).
 
-## 5. Find the people
+End with one line they can say yes to: “Say yes and I'll do all of it, or tell me what to change.”
 
-- **Every sender's name and email** over the time picked. Page through the search until there are no more results; for a busy email group, go a month at a time.
-- **Their own address.** A Google Group can send a post From its own address, like “Maya Lee via Maple Court” <maple-court@googlegroups.com>: the person's own is then in Reply-To, or in their signature. groups.io writes one as maya.lee=example.com@groups.io, which is maya.lee@example.com. Without their own address, leave them out and say so.
-- **Leave out** the email group's own addresses (its owners' and moderators' too, like maplecourt+owner@groups.io), no-reply and bounce senders (noreply, no-reply, mailer-daemon, postmaster), digests and the email group's own notices, the person themselves, and anyone who asked to be left off.
-- **A thread:** everyone who wrote to it, by the name and address in each message's From. Ask before adding people who were only copied.
-- **Names** as people sign, “Maya Lee” rather than maya.lee; ask about an address with no name.
-- **One contact per person.** Someone posting from two addresses is one contact with both, but only when you're sure: ask.
+## 3. Then do the whole job, without stopping
 
-## 6. Find the numbers people give about themselves
+On their answer, do everything in the same turn, with the fewest calls:
 
-People often put their number in their signature. Search every message each person sent:
+1. **Make the group** with its rules and `email_group`, or update the one they picked.
+2. **Add everyone at once.** A subscriber export they attached goes in whole as `contacts_file` on `import_contacts`, in one call. Otherwise `import_contacts` with up to 500 contacts a call, each `{ name, fields: [{ type: "email", value }, { type: "phone", label: "mobile", value }], note }`, the note everything people in the group should know about them, read by everyone the Notes rule shows notes to, never how they were found. One number Openbook can't read refuses the whole call, so check them first.
+3. **Merge what they said is one person.** `import_contacts` answers with `possible_duplicates`: merge every pair they agreed to in one `merge_contacts` call, `pairs: [{ keep, other }]`, keeping the contact that was there first. Pairs they weren't asked about wait for the report.
+4. **More notes and fields later, many contacts at once:** `add_note` with `notes: [{ contact, text }]` and `update_contact` with `edits: [{ contact, changes }]`, up to 500 each call. Notes follow `openbook`'s rules: plain facts, nothing about how a contact was found, no source, no hedging.
+5. **Recommendations,** if they said yes (`import-recommendations`, steps 9 and 11).
 
-- **Only what they wrote.** Skip quoted text: lines starting with “>”, and everything after a line like “On Mar 3, 2026, at 9:14 AM, Ruth Park wrote:”, “-----Original Message-----” or a forwarded message's header (“Begin forwarded message:”, or its From, Sent, To and Subject lines).
-- **Only their own:** in their signature, the lines after their name at the end of what they wrote, or about themselves, like “call me at” or “my cell is”. Never a number they give for someone else, a business or another neighbor.
-- **US numbers in every format:** 10 digits with an optional +1 or 1, not part of a longer run of digits.
+## 4. If the turn ends first, leave a checkpoint
 
-  ```
-  (?<!\d)(?:\+?1[\s.-]?)?\(?([2-9]\d{2})\)?[\s.-]?(\d{3})[\s.-]?(\d{4})(?!\d)
-  ```
+The app can end a turn after so many calls. If it does before the job is done, end with:
 
-  It finds (415) 555-0148, 415-555-0148, 415.555.0148, +1 415 555 0148 and 4155550148, and Openbook takes any of them as written.
-- **Labeled by the cue next to it:** M, C, Cell or Mobile is `mobile`; O, Office, W, Work or Direct is `work`; H or Home is `home`; skip Fax. Ask about one with no cue: “Ruth Park signs with (415) 555-0148 and no label. Is that her mobile?”
-- **The newest wins:** when someone's signature changed numbers, take the one in their latest message.
-- **Keep where each came from,** to say when you confirm.
+- what's done, in counts, like “Added 74 of 140 to Maple Court • Neighbors, with 8 mobile numbers”;
+- exactly where to pick up, like “Next: senders from before June 2025, then merging 3 pairs”;
+- one line to send: “Say continue and I'll pick up there.”
 
-## 7. Set who sees what, before adding
+On “continue”, start from that checkpoint. Never read again what was read, or ask again what was answered.
 
-A new group shows only Notes until its rules are set. Suggest, unless the person says otherwise:
+## 5. Report, and help people join
 
-- `email` Visible: people on an email group already see the addresses of the people who post.
-- `phone.mobile` Request required, and `phone.work` and `phone.home` too: people put a number in a signature for one email, not for a directory.
+Say how many were added, how many joined contacts already there and got details they didn't have (`filled`), how many were merged, what was left out and why, and any likely duplicates nobody was asked about, with a yes to merge them. Then, as they picked in step 2:
 
-Set them with the group: `rules` on `create_organization`, or `manage_groups` `update`.
+- **The invite link, posted by them.** The group's `share_page` in `my_access` opens its Share page, with its QR code and their invite link, like withopenbook.com/K7M2PQ9XRA, and Copy link. The invite link goes in the post, never the Share page's own address. Offer a draft for them to send from their own email: what the group is, that it shows up in everyone's phone contacts, what everyone in it sees and what takes a request, and the link. Openbook sends nothing to the email group.
+- **An email to each person:** `invite_users` with `people` and `add_to_group: false`, since they're in the group as contacts already (`invite-people`). Openbook emails up to 500 invites a day.
 
-## 8. Confirm
-
-Say the counts, where it goes, the rules, the email group, and where each number came from: “About 140 people posted to Maple Court since last November. I'll create Maple Court with one group, Neighbors, naming maple-court@googlegroups.com as the email group it came from: everyone's name and email, with emails visible, and 23 mobile numbers from people's own signatures, which others request. Maya Lee's (415) 555-0142 is from her signature on March 3. Shall I add them?”
-
-## 9. Import
-
-- `import_contacts` with the group, up to 500 contacts a call; split a bigger email group and keep going until everyone's in. Each contact is `{ name, fields: [{ type: "email", value }, { type: "phone", label: "mobile", value }] }`.
-- One number Openbook can't read refuses the whole call, so check them first.
-- Report how many were added, how many joined contacts the directory already had and got details they didn't have (`filled`), and anything left out and why.
-
-## 10. Help people join
-
-People joining is what makes the group useful, and what counts for Founding Member. Offer either:
-
-- **Post the group's invite link to the email group, themselves.** The group's `share_page` in `my_access` opens its Share page, with its QR code and their invite link, like withopenbook.com/K7M2PQ9XRA, and Copy link: give it as a link for them to open. The invite link goes in the post, never the Share page's own address, which is theirs. Offer to draft the post for them to send from their own email: what the group is, that it shows up in everyone's phone contacts, what everyone in it sees and what takes a request, and the link. A new group lets people who ask to join from its link in right away, unless it was made otherwise. Openbook sends nothing to the email group.
-- **Invite each person by email:** `invite_users` with `people` and `add_to_group: false`, since they're in the group as contacts already (`invite-people`). Openbook emails each invite, up to 500 a day.
-
-Someone who joins from the invite link becomes a contact in the group too, with their name, mobile number and email (`add_from_links`). Only a mobile number matches them to a contact already there, so someone imported with only an email shows twice until you merge the two (`tidy-contacts`).
+Someone who joins from the link becomes a contact in the group with their mobile number, and only a mobile number matches them to a contact already there, so someone imported with only an email shows twice until merged: `search_contacts` with `duplicates: true` finds them, and `merge_contacts` merges them (`tidy-contacts`).

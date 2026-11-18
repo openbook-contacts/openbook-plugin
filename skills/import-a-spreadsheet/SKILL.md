@@ -1,11 +1,13 @@
 ---
 name: import-a-spreadsheet
-description: Import contacts into Openbook from a spreadsheet, a CSV, an Excel file, a Google Sheets link, a PDF roster, an email group's subscriber export or a pasted table: finding the table in every tab, mapping its columns, sorting people into groups by column or section, setting who sees what first, and checking the contacts with the person before adding anyone.
+description: Import contacts into Openbook from a spreadsheet, a CSV, an Excel file, a Google Sheets link, a PDF roster, an email group's subscriber export or a pasted table, in as few turns as possible: finding the table in every tab, mapping its columns, sorting people into groups by column or section, asking every question in one message, then adding everyone, a CSV whole in one call, and merging likely duplicates.
 ---
 
 # Import a spreadsheet or roster
 
 Use this when the person gives you rows of people: a team roster, a class roster, a staff directory, a sign-up form's export, a Google Group's or groups.io group's subscriber export, or a table pasted into the chat. For a photo or a scan, follow `import-from-a-photo` instead.
+
+**Ask once, then finish.** Read the whole file and work out every step below before saying anything, put every question in the one message of step 6 with your suggestion for each, then on their answer do steps 7 and 8 without stopping. If the app ends a turn before the job is done, end with what's done, where to pick up and “Say continue and I'll pick up there”, and start there next turn.
 
 ## 1. Decide where they go
 
@@ -43,15 +45,17 @@ Map each column to a field and show the person the mapping before going on:
 
 A new group shows only Notes until its rules are set; every other field is Hidden from everyone but owners. Ask what people in each group should see of each field, Visible, Request required or Hidden, and set it with the group: `rules` on `create_organization`, or on `manage_groups` `create` or `update`, keyed like `phone.mobile`, `phone.home`, `email` and `address.home`.
 
-## 6. Confirm
+## 6. Ask once
 
-Show the count, the groups, the rules and a few rows, and anything left out and why: “I found 42 people on two tabs: 30 parents and 12 coaches, 41 with a mobile number. I'll create Riverside FC with Parents and Coaches, with mobile numbers visible in each. I skipped the Payments tab. Shall I add them?”
+One message with everything, each with your suggestion: the count, the groups, the mapping, the rules and a few rows, anything left out and why, every question from the steps above (which tabs, a Phone column's label, two people on one number), and anyone who looks like a contact the directory already has, by the same email or name (`search_contacts` in it, `limit` 500): “I found 42 people on two tabs: 30 parents and 12 coaches, 41 with a mobile number. I'll create Riverside FC with Parents and Coaches, with mobile numbers visible in each. I skipped the Payments tab. Hana Sato is in Personal already by email, so I'll merge her into the new contact. Say yes, or tell me what to change.”
 
 ## 7. Import
 
-- `import_contacts` with the group and up to 500 contacts a call; split a bigger file and keep going until every row is in. For several groups, import each group's people into it. Someone in two groups with a mobile number goes in with both imports, the second joining the contact the first made; someone without one goes in once, then `manage_groups` `add_contacts` puts them in the other group (`search_contacts` finds them).
-- A contact's `note` in `import_contacts` or `add_contact` is one only the importer sees. For a note everyone in the group should read, call `add_note` for that contact after the import.
-- An organization's free plan holds 1,000 contacts and 5 groups. A person keeps up to 5 groups of their own in Personal, My Contacts and By Request not counting. If Openbook refuses for a limit, say what it is and, for an organization, point to withopenbook.com, never a price.
+- **A CSV, as the person attached it in ChatGPT, whose columns are a name and an email or phone,** like an email group's subscriber export: `import_contacts` with `contacts_file`, the whole file in one call. Openbook reads its name, email and phone columns and says which rows had no name.
+- Otherwise `import_contacts` with the group and up to 500 contacts a call; split a bigger file and keep going in the same turn until every row is in. For several groups, import each group's people into it. Someone in two groups with a mobile number goes in with both imports, the second joining the contact the first made; someone without one goes in once, then `manage_groups` `add_contacts` puts them in the other group (`search_contacts` finds them).
+- Each contact's `note` in `import_contacts` or `add_contact` is read by everyone the group's Notes rule shows notes to, so put what people should know there as you add them, with no `add_note` after; `note_only_you` is only for what's the person's alone.
+- `import_contacts` answers with `possible_duplicates`: merge the pairs the person agreed to in step 6 with one `merge_contacts` call, `pairs: [{ keep, other }]`, and name the rest in the report.
+- An organization's free plan holds 1,000 contacts and 5 groups. A person keeps up to 5 groups of their own in Personal, Private Contacts and By Request not counting. If Openbook refuses for a limit, say what it is and, for an organization, point to withopenbook.com, never a price.
 
 ## 8. Report and next steps
 

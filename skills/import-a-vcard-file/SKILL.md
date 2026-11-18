@@ -23,13 +23,13 @@ A file holds one card per person, from `BEGIN:VCARD` to `END:VCARD`.
 
 - **Lines:** a line that starts with a space or a tab continues the line before it. A backslash escapes a comma, a semicolon or another backslash, and `\n` is a new line.
 - **Name:** `FN`, or else `N`'s parts (family;given;middle;prefix;suffix) as “given middle family suffix”. A card with neither, like a company's, takes `ORG` as its name.
-- **Phones (`TEL`):** CELL, MOBILE and IPHONE are `mobile`; HOME `home`; WORK and MAIN `work`. Skip FAX and PAGER. A custom label sits on its own line in the same group, like `item1.TEL` with `item1.X-ABLabel`; Apple's own labels read like `_$!<Mobile>!$_`, so take what's between `<` and `>`, in lowercase. Only mobile numbers identify a person.
-- **Emails (`EMAIL`):** HOME `home`, WORK `work`, or the custom label.
+- **Phones (`TEL`):** CELL, MOBILE and IPHONE are `mobile`; HOME `home`; WORK `work`; MAIN `main`. Skip FAX and PAGER. A custom label sits on its own line in the same group, like `item1.TEL` with `item1.X-ABLabel`, and Apple's own read like `_$!<Mobile>!$_`: map each to `mobile`, `home`, `work`, `main` or `other`, since `import_contacts` takes only those. Only mobile numbers identify a person.
+- **Emails (`EMAIL`):** HOME `home`, WORK `work`, a school's `school`, anything else `other`.
 - **Addresses (`ADR`):** the parts after the first two (street;city;region;postal code;country) joined with commas, `home` or `work`.
 - **Others:** `ORG` is `company`, `TITLE` is `title`, `BDAY` is `birthday` (a date like 1985-03-04, or --03-04 with no year), `URL` is `url`, and `X-SOCIALPROFILE` or `IMPP` is `social`.
 - **Photos (`PHOTO`):** base64 after `ENCODING=b`, or a `data:` address. A photo is a field Openbook keeps as each group's rule for Photo says, Hidden until set. Photos make a file large, so ask before including them.
 - **Notes (`NOTE`):** what the person wrote about someone for themselves. Put it in the contact's `note` in `import_contacts`, which only they see, never anyone else, owners included. Never send it as a field or with `add_note` unless they ask for others to read it.
-- **Leave out** Openbook's own cards, whose names end with a group, like “Hana Sato • Coaches”, or read “Openbook”, and cards that are only a List (`X-ADDRESSBOOKSERVER-KIND:group`).
+- **Leave out** Openbook's own cards, which carry Openbook's links (`X-SOCIALPROFILE;type=openbook`) and their groups in the company (`ORG:Coaches` or `ORG:Acme Corp • Coaches`), or read “Openbook”, and cards that are only a List (`X-ADDRESSBOOKSERVER-KIND:group`).
 
 ## 4. Check and confirm
 

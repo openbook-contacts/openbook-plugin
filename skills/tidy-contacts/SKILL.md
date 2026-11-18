@@ -1,6 +1,6 @@
 ---
 name: tidy-contacts
-description: Tidy an Openbook directory: find duplicate contacts and merge them, sort out the directory's Missing Group, bring back a contact from Recently Deleted (30 days), and approve or decline adds of mobile numbers the directory already has.
+description: Tidy an Openbook directory: find every likely duplicate in one call and merge the ones the person confirms in another, sort out the directory's Missing Group, bring back a contact from Recently Deleted (30 days), and approve or decline adds of mobile numbers the directory already has.
 ---
 
 # Tidy a directory
@@ -9,11 +9,11 @@ Most of this is for owners, who see every contact, Missing Group and Recently De
 
 ## Duplicates
 
-Openbook keeps one contact per mobile number in a directory, so duplicates are the same person under two numbers, an email, or none.
+Openbook keeps one contact per mobile number in a directory, so duplicates are the same person under two numbers, an email, or none. Find and merge them in about two calls, and one question:
 
-1. `search_contacts` across the directory (`directory`, `limit` 100, following `cursor`), and list pairs with the same email or a very close name and no conflicting mobile number.
-2. Show each pair side by side, and ask which to keep.
-3. Merge: `update_contact` gives the one kept any values it's missing, `manage_groups` `add_contacts` puts it in the other's groups, then `delete_contact` sends the extra one to Recently Deleted, where it can be brought back for 30 days. Notes stay with the contact they're on, so say so before deleting one that has some.
+1. `search_contacts` with `directory` and `duplicates: true` (`limit` up to 500) lists every pair that may be one person, each with its reasons, the same email, number or name, from the values the person sees. `import_contacts` reports the same for what it just added, as `possible_duplicates`.
+2. Show all the pairs in one message, each with which you'd keep (the older one, or the one with more on it) and why, and ask once: “These 9 look like the same person twice. Merge them, keeping the first of each?” Name any with notes, since both contacts' notes end up on the one kept.
+3. One `merge_contacts` call with every pair they said yes to, `pairs: [{ keep, other }]`: the one kept takes each value of the other's it doesn't have, both emails when they differ, its groups and its notes, and the other goes to Recently Deleted, where it can be brought back for 30 days. A contact someone was given, shared or asked for details of can't be merged away, so keep that one instead.
 
 ## Missing Group
 
@@ -25,6 +25,6 @@ Openbook keeps one contact per mobile number in a directory, so duplicates are t
 
 ## Adds waiting for an owner
 
-When someone who isn't an owner adds a mobile number the directory already has, it waits. `review_adds` `list` shows them, and `approve` or `decline` answers each, with the contact and group it names.
+When someone who isn't an owner adds a mobile number the directory already has, it waits. `waiting_adds` shows them, and `review_adds` `approve` or `decline` answers each, with the contact and group it names.
 
 Removing and deleting are different: say “take out of the group” for a removal, and “delete” only for `delete_contact`.

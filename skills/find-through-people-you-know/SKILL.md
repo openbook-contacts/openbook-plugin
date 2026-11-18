@@ -12,5 +12,5 @@ Use this when `search-contacts` finds nobody, or the person wants someone they d
 3. **Make each search count:** there are 3 a day. Ask what matters first, then search with `looking_for` (specific, like “a plumber who fixes water heaters”), `near` (a town or neighborhood) and `limit`.
 4. **Show the matches as they come:** each has `why` it matched, its `area`, how many groups and people it came through, and `could_share`, who could share it. Someone you know shows by name; someone found through a group shows only as “Someone in a group you're in”. Never guess who a match is, and never ask anyone to guess.
 5. **Ask for one:** `request_field` with the `match`, the `field` it offers (like `{ type: "phone", label: "work" }` for a business), `ask` with users from its `could_share`, and a `reason` in the person's words, like “Our water heater is leaking, hoping to book someone this week.” There's 1 request outside their groups a day, so confirm which match first.
-6. **Follow up:** `my_requests` shows it waiting, then the answer. A yes puts the contact in Personal • By Request, which shows on their phones.
+6. **Follow up:** `my_requests` shows it waiting, then the answer. A yes puts the contact in By Request, which shows on their phones.
 7. **If nothing comes up,** offer `ask-my-contacts`: a text they send to a few people they choose.

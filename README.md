@@ -10,6 +10,7 @@ With Openbook in Claude you can:
 - Invite people by email, or with a text you send yourself.
 - Answer and make requests for a contact's number or email.
 - Put Openbook on your iPhone, iPad, Mac or Android phone, where the contacts stay current on their own, and choose whether each group shows in your Contacts or only when you search.
+- Keep each group's reminders, events and notes, see the birthdays coming up in your groups, merge contacts that are one person and undo a change to a contact.
 - Find someone through people you know, like a plumber or a tutor: nobody sees your contacts, people you know can ask you for one, and nothing is shared unless the person who has the contact says yes.
 
 Openbook is invite only for now: you're invited once someone who uses Openbook invites you or adds your mobile number to one of their groups. It works with US mobile numbers.
@@ -25,7 +26,7 @@ In Claude, add Openbook from the directory, then connect it and sign in. In Clau
 ## What's in it
 
 - **Openbook's connector**, at `https://api.withopenbook.com/mcp`. When you connect it, Openbook's own sign-in opens, and you sign in with your mobile number, a passkey or a code Openbook emails you. New users add their name and an email, which a code confirms.
-- **Twenty skills, one job each**, which Claude picks as they fit: getting started, importing a spreadsheet, a vCard file, a photo or an email thread, keeping your own contacts in Openbook, recommendations, adding the people you know, refreshing a group for a new season, tidying contacts, inviting people, searching, finding someone through people you know, asking your contacts, answering requests, sharing your details, who can send you requests, phones, and groups and access, with Openbook's rules for every task.
+- **Twenty-two skills, one job each**, which Claude picks as they fit: getting started, importing a spreadsheet, a vCard file, a photo or an email thread, keeping your own contacts in Openbook, recommendations, coworkers at your company's email domain, what the Founding Member QR Card is, adding the people you know, refreshing a group for a new season, tidying contacts, inviting people, searching, finding someone through people you know, asking your contacts, answering requests, sharing your details, who can send you requests, phones, and groups and access, with Openbook's rules for every task.
 
 ## What it sends, and where
 
