@@ -42,6 +42,6 @@ A new group of their own shows on their phones from the start. Private Contacts 
 
 - Pick their access in the invite: viewing only, or `add` and `edit` to keep it up to date together, and `delete` if they should remove contacts. To change it later, `group_access` shows who has access and their user IDs, then `manage_access` `change` with the person and the new access.
 - They see it by its name, like Family & Friends, or Private Contacts as the person's, like “Maya's Private Contacts”, and only what its rules show. They can't see the person's notes only they see.
-- Openbook is invite only for now, so the invite is also how someone new gets in.
+- The invite also lets someone new make their account at once.
 
 Confirm each step before doing it.

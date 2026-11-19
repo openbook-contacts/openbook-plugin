@@ -5,7 +5,7 @@ description: "Invite people to an Openbook group by email, or with texts the per
 
 # Invite people
 
-Openbook is invite only for now, so an invite, a group's code or someone's invite link is how new people get in.
+An invite, a group's code or someone's invite link lets someone new make their account at once, so inviting is the quickest way to bring people in.
 
 1. **Check who can invite.** Owners and people with Give access on the group can, and so can everyone with access when the group lets them (`anyone_can_invite`). `my_access` says.
 2. **Who and how.** Give each person's name in `people`, with a mobile number or an email: `invite_users` emails the invite when there's an email, and otherwise returns an `sms:` link for their number. Give those links to the person to tap and send from their own phone, one per person: Openbook never texts anyone. Up to 500 emailed invites a day each; past that an invite comes back with its link for the person to send.

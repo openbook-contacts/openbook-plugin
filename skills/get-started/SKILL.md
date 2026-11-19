@@ -19,7 +19,7 @@ description: "Set up Openbook right after installing it: see what the person can
    When they bring an email group, say what it can bring, in these words: “If yours is the first group from this email group that 5 people join, your QR Card becomes a Founding Member card.” Never promise it (`founding-member`).
 
    Contacts live only in groups, so ask what to call its first group, for who's in it, like Parents, 1st Grade Teachers or Sales People, and what everyone in it should see of each field: Visible, Request required or Hidden. Confirm both, then `create_organization` with `name`, `first_group` and `rules`. Leaving out `name` makes a group of their own in Personal instead, like Book Club, which suits a few friends or a family.
-4. **Invited to one:** they join from the invite link or the group's code, which asks for their mobile number and a texted code. Openbook is invite only for now, so that's the way in. Once they're in, `my_access` shows the group.
+4. **Invited to one:** they join from the invite link or the group's code, which asks for their mobile number and a texted code. Once they're in, `my_access` shows the group.
 5. **Finding someone:** use `find-through-people-you-know`, which starts by adding the contacts on their phone (`add-phone-contacts`).
 6. **On their phone:** `add_to_device` with `iphone`, `mac` or `android` returns the setup steps' link, which asks them to sign in on that device first. Give it as a link to open on that device. On an iPhone, they open it in Safari, sign in, then install the profile from Settings, and their groups appear in Contacts (`set-up-phones` has the rest).
 

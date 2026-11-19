@@ -13,7 +13,7 @@ With Openbook in Claude you can:
 - Keep each group's reminders, events and notes, see the birthdays coming up in your groups, merge contacts that are one person and undo a change to a contact.
 - Find someone through people you know, like a plumber or a tutor: nobody sees your contacts, people you know can ask you for one, and nothing is shared unless the person who has the contact says yes.
 
-Openbook is invite only for now: you're invited once someone who uses Openbook invites you or adds your mobile number to one of their groups. It works with US mobile numbers.
+Openbook works with US mobile numbers.
 
 ## Install
 
