@@ -1,6 +1,6 @@
 ---
 name: answer-requests
-description: Go through what's waiting for the person in Openbook: requests for a contact's number or email, asks for a recommendation, suggested changes, people asking to join, and adds waiting for an owner, and answer each one only as the person decides.
+description: "Go through what's waiting for the person in Openbook: requests for a contact's number or email, asks for a recommendation, suggested changes, people asking to join, and adds waiting for an owner, and answer each one only as the person decides."
 ---
 
 # Answer what's waiting

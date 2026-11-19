@@ -1,6 +1,6 @@
 ---
 name: invite-people
-description: Invite people to an Openbook group by email, or with texts the person sends from their own phone, adding them to the group as contacts while inviting them; approve people waiting to join; and explain how invited people get the group on their phones.
+description: "Invite people to an Openbook group by email, or with texts the person sends from their own phone, adding them to the group as contacts while inviting them; approve people waiting to join; and explain how invited people get the group on their phones."
 ---
 
 # Invite people

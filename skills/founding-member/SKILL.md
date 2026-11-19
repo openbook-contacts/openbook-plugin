@@ -1,6 +1,6 @@
 ---
 name: founding-member
-description: Answer what a Founding Member QR Card is and how to get one: the first group from an email group, like a Google Group or a groups.io group, that 5 people join earns whoever named its email group the card, in Black Gold, only 1,000 ever, never bought, never promised, and always shown once earned.
+description: "Answer what a Founding Member QR Card is and how to get one: the first group from an email group, like a Google Group or a groups.io group, that 5 people join earns whoever named its email group the card, in Black Gold, only 1,000 ever, never bought, never promised, and always shown once earned."
 ---
 
 # Founding Member

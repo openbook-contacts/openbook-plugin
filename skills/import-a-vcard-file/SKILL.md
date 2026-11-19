@@ -1,6 +1,6 @@
 ---
 name: import-a-vcard-file
-description: Import a vCard file (.vcf) into an Openbook group: a List or All Contacts exported from Contacts on an iPhone or Mac, a Google Contacts or Outlook export, or a card someone shared, keeping names, numbers, emails, addresses, birthdays and more under the group's field rules, with the file's notes kept as notes only the person sees.
+description: "Import a vCard file (.vcf) into an Openbook group: a List or All Contacts exported from Contacts on an iPhone or Mac, a Google Contacts or Outlook export, or a card someone shared, keeping names, numbers, emails, addresses, birthdays and more under the group's field rules, with the file's notes kept as notes only the person sees."
 ---
 
 # Import a vCard file into a group

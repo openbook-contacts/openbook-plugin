@@ -1,6 +1,6 @@
 ---
 name: request-controls
-description: Change who can ask the person for contacts on Openbook: Allow requests from Everyone, Only Contacts or Nobody, removing their number from searches, hiding a contact from requests, blocking requests from someone, and turning texts about requests on or off.
+description: "Change who can ask the person for contacts on Openbook: Allow requests from Everyone, Only Contacts or Nobody, removing their number from searches, hiding a contact from requests, blocking requests from someone, and turning texts about requests on or off."
 ---
 
 # Control who can ask

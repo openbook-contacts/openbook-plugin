@@ -1,6 +1,6 @@
 ---
 name: import-recommendations
-description: Turn an email group's recommendations into an Openbook group of the businesses and people a community recommends, in as few turns as possible: finding the hashtags its posts use, like #recommendation or #ISO, in messages they sent and received, each contact with the numbers the posts give or its own website or listing has, and a shared note saying who recommended them, when and why, with no hedging, all asked in one message, then added, merged and noted in a few calls.
+description: "Turn an email group's recommendations into an Openbook group of the businesses and people a community recommends, in as few turns as possible: finding the hashtags its posts use, like #recommendation or #ISO, in messages they sent and received, each contact with the numbers the posts give or its own website or listing has, and a shared note saying who recommended them, when and why, with no hedging, all asked in one message, then added, merged and noted in a few calls."
 ---
 
 # Import recommendations

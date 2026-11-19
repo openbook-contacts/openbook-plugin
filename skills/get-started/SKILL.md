@@ -1,6 +1,6 @@
 ---
 name: get-started
-description: Set up Openbook right after installing it: see what the person can do, start a shared directory for their group from whatever they have (a spreadsheet, a photo, an email group, their coworkers' email), join one they were invited to, and put Openbook on their phone.
+description: "Set up Openbook right after installing it: see what the person can do, start a shared directory for their group from whatever they have (a spreadsheet, a photo, an email group, their coworkers' email), join one they were invited to, and put Openbook on their phone."
 ---
 
 # Get started with Openbook

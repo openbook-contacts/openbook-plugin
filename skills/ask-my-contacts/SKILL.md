@@ -1,6 +1,6 @@
 ---
 name: ask-my-contacts
-description: Ask a few people the person knows for a recommendation on Openbook: "know a good electrician?", with texts they send from their own phone (ask_my_contacts), see the answers, and answer someone else's ask with a contact (answer_ask).
+description: "Ask a few people the person knows for a recommendation on Openbook: \"know a good electrician?\", with texts they send from their own phone (ask_my_contacts), see the answers, and answer someone else's ask with a contact (answer_ask)."
 ---
 
 # Ask people you know, and answer their asks

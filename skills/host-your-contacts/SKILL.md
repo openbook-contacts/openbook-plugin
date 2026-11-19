@@ -1,6 +1,6 @@
 ---
 name: host-your-contacts
-description: Keep the person's own contacts in Openbook as their address book, with addresses, birthdays and their own notes, on their phones and kept in sync both ways, and share it with someone they trust, a partner, a spouse or a close colleague, as a contact book they keep up to date together.
+description: "Keep the person's own contacts in Openbook as their address book, with addresses, birthdays and their own notes, on their phones and kept in sync both ways, and share it with someone they trust, a partner, a spouse or a close colleague, as a contact book they keep up to date together."
 ---
 
 # Host your contacts in Openbook, and share them

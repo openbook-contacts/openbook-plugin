@@ -1,6 +1,6 @@
 ---
 name: groups-and-access
-description: Run groups in Openbook: create, rename and delete groups, set what everyone in a group sees (Visible, Request required or Hidden), give people access and group permissions, choose who can invite, pick a group's QR color, see the activity log, and move a group of the person's own into an organization.
+description: "Run groups in Openbook: create, rename and delete groups, set what everyone in a group sees (Visible, Request required or Hidden), give people access and group permissions, choose who can invite, pick a group's QR color, see the activity log, and move a group of the person's own into an organization."
 ---
 
 # Groups and access

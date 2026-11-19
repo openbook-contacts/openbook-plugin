@@ -1,6 +1,6 @@
 ---
 name: search-contacts
-description: Find someone among the contacts the person can see in Openbook: by name, role, team or anything in their notes, like "who drives on Saturdays" or "the U10 coach", open their card, and ask for a number or email their group keeps behind a request.
+description: "Find someone among the contacts the person can see in Openbook: by name, role, team or anything in their notes, like \"who drives on Saturdays\" or \"the U10 coach\", open their card, and ask for a number or email their group keeps behind a request."
 ---
 
 # Search the person's contacts

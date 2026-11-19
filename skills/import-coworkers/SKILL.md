@@ -1,6 +1,6 @@
 ---
 name: import-coworkers
-description: Build an Openbook group of the people the person works with, from their email at one company domain like @acme.com, never a free email domain: names and addresses from From, To and Cc, and job titles, companies and numbers from the signatures in messages each person sent, into a group of their own or the company's directory, confirmed before adding.
+description: "Build an Openbook group of the people the person works with, from their email at one company domain like @acme.com, never a free email domain: names and addresses from From, To and Cc, and job titles, companies and numbers from the signatures in messages each person sent, into a group of their own or the company's directory, confirmed before adding."
 ---
 
 # Import coworkers

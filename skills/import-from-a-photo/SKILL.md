@@ -1,6 +1,6 @@
 ---
 name: import-from-a-photo
-description: Add contacts to Openbook from photos or scans: a handwritten sign-up sheet, a printed roster, a whiteboard, a stack of business cards or a screenshot, several photos in one running table, headings on a page as groups, reading every entry carefully, asking about anything hard to make out, and confirming before adding.
+description: "Add contacts to Openbook from photos or scans: a handwritten sign-up sheet, a printed roster, a whiteboard, a stack of business cards or a screenshot, several photos in one running table, headings on a page as groups, reading every entry carefully, asking about anything hard to make out, and confirming before adding."
 ---
 
 # Import from a photo or scan

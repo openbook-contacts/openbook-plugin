@@ -1,6 +1,6 @@
 ---
 name: set-up-phones
-description: Put Openbook on the person's iPhone, iPad, Mac or Android phone with its setup link, list and remove their devices, choose which groups show in Contacts or only in search, and work out why a group or contact isn't on their phone.
+description: "Put Openbook on the person's iPhone, iPad, Mac or Android phone with its setup link, list and remove their devices, choose which groups show in Contacts or only in search, and work out why a group or contact isn't on their phone."
 ---
 
 # Openbook on phones

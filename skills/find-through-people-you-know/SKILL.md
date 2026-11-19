@@ -1,6 +1,6 @@
 ---
 name: find-through-people-you-know
-description: Find someone outside the person's own groups through people they know on Openbook: a plumber, a tutor, a pediatrician, a sitter, with find_people, then ask for their number with request_field; nobody sees anyone's contacts, and nothing is shared without a yes.
+description: "Find someone outside the person's own groups through people they know on Openbook: a plumber, a tutor, a pediatrician, a sitter, with find_people, then ask for their number with request_field; nobody sees anyone's contacts, and nothing is shared without a yes."
 ---
 
 # Find someone through people you know

@@ -1,6 +1,6 @@
 ---
 name: import-from-email
-description: Build an Openbook group from an email group (a Google Group, a groups.io group or any mailing list) or a reply-all thread in as few turns as possible: one pass reading the person's email with this app's own access, one message with every question and a suggestion for each, then the whole job without stopping, its subscribers or every sender's name and email, the numbers people give about themselves, duplicates merged, the email group named and people helped to join, with a checkpoint if the turn ends first.
+description: "Build an Openbook group from an email group (a Google Group, a groups.io group or any mailing list) or a reply-all thread in as few turns as possible: one pass reading the person's email with this app's own access, one message with every question and a suggestion for each, then the whole job without stopping, its subscribers or every sender's name and email, the numbers people give about themselves, duplicates merged, the email group named and people helped to join, with a checkpoint if the turn ends first."
 ---
 
 # Import from an email group

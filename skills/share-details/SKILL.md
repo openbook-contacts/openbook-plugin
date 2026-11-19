@@ -1,6 +1,6 @@
 ---
 name: share-details
-description: Share contact details on Openbook before anyone asks: the person's own number or email with everyone in a group they're in or with one person, or a contact's details from that contact's card on their phone, on Openbook's own pages rather than in this chat.
+description: "Share contact details on Openbook before anyone asks: the person's own number or email with everyone in a group they're in or with one person, or a contact's details from that contact's card on their phone, on Openbook's own pages rather than in this chat."
 ---
 
 # Share details before anyone asks

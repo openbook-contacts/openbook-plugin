@@ -1,6 +1,6 @@
 ---
 name: import-a-spreadsheet
-description: Import contacts into Openbook from a spreadsheet, a CSV, an Excel file, a Google Sheets link, a PDF roster, an email group's subscriber export or a pasted table, in as few turns as possible: finding the table in every tab, mapping its columns, sorting people into groups by column or section, asking every question in one message, then adding everyone, a CSV whole in one call, and merging likely duplicates.
+description: "Import contacts into Openbook from a spreadsheet, a CSV, an Excel file, a Google Sheets link, a PDF roster, an email group's subscriber export or a pasted table, in as few turns as possible: finding the table in every tab, mapping its columns, sorting people into groups by column or section, asking every question in one message, then adding everyone, a CSV whole in one call, and merging likely duplicates."
 ---
 
 # Import a spreadsheet or roster

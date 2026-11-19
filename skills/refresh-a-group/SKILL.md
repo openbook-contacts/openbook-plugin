@@ -1,6 +1,6 @@
 ---
 name: refresh-a-group
-description: Bring an Openbook group up to date from a new roster: a new season's team sheet, this year's class roster, a current staff export, showing who's new, whose details changed and who's no longer on it, and making only the changes the person approves.
+description: "Bring an Openbook group up to date from a new roster: a new season's team sheet, this year's class roster, a current staff export, showing who's new, whose details changed and who's no longer on it, and making only the changes the person approves."
 ---
 
 # Refresh a group from a new roster

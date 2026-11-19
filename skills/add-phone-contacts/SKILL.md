@@ -1,6 +1,6 @@
 ---
 name: add-phone-contacts
-description: Bring the person's own phone contacts into Openbook's Private Contacts with Find people through contacts: from an iPhone's exported All Contacts file, Openbook's own cards in it left out by Openbook, a Google Contacts, Mac or Outlook export, or numbers they paste, so people they know can ask them for someone, and they can find people through people they know.
+description: "Bring the person's own phone contacts into Openbook's Private Contacts with Find people through contacts: from an iPhone's exported All Contacts file, Openbook's own cards in it left out by Openbook, a Google Contacts, Mac or Outlook export, or numbers they paste, so people they know can ask them for someone, and they can find people through people they know."
 ---
 
 # Add the contacts on their phone

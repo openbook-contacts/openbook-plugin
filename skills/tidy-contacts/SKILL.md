@@ -1,6 +1,6 @@
 ---
 name: tidy-contacts
-description: Tidy an Openbook directory: find every likely duplicate in one call and merge the ones the person confirms in another, sort out the directory's Missing Group, bring back a contact from Recently Deleted (30 days), and approve or decline adds of mobile numbers the directory already has.
+description: "Tidy an Openbook directory: find every likely duplicate in one call and merge the ones the person confirms in another, sort out the directory's Missing Group, bring back a contact from Recently Deleted (30 days), and approve or decline adds of mobile numbers the directory already has."
 ---
 
 # Tidy a directory
