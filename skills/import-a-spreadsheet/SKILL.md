@@ -12,7 +12,7 @@ Use this when the person gives you rows of people: a team roster, a class roster
 ## 1. Decide where they go
 
 - Call `my_access`. Ask which directory and group the people go in, or offer to start one: `create_organization` with a `name` for a club, school or company, or without one for a group of the person's own in Personal, like Book Club.
-- Importing a whole file takes being an owner of the directory (`import_contacts`), which the person always is in Personal. Someone with add access who isn't an owner adds people one at a time with `add_contact`, and an add of a mobile number the directory already has waits for an owner.
+- Importing a whole file takes being an owner of the directory (`import_contacts`), which the person always is in Personal, into any group but Private Contacts, which only `add-phone-contacts` fills. Someone with add access who isn't an owner adds people one at a time with `add_contact`, and an add of a mobile number the directory already has waits for an owner.
 - **A roster from an email group,** like a groups.io or Google Group subscriber export: it's that email group's people. Set `email_group` to the email group's address on the group, like maplecourt@groups.io, confirming it with the person, and say what Founding Member is, as `import-from-email` does, without promising it. Then follow `import-from-email`'s rules for who sees what and its last step, helping people join.
 
 ## 2. Find the table

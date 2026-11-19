@@ -13,7 +13,7 @@ Two things people want, often together:
 ## 1. Choose the group
 
 - **A new group of their own** (`create_organization` without a `name`, with a `first_group` like Contacts, or Family & Friends for one to share) holds exactly the contacts they bring in. Best for sharing, since they choose who's in it.
-- **Private Contacts**, if they've added contacts with Find people through contacts, holds those people already, each whole. An import matches them by mobile number and fills in what each doesn't have yet, like an address or a birthday, never changing what's there.
+- **Private Contacts** (`private_contacts: true` in `my_access`), if they've added contacts with Find people through contacts, holds those people already, each whole, with everything their phone has. It fills only through `add-phone-contacts`: sending their contacts again brings in new ones and what changed, and `import_contacts` never takes it.
 
 A person keeps up to 5 groups of their own, Private Contacts and By Request not counting.
 
@@ -27,7 +27,7 @@ Before importing, say it plainly: nobody sees their contacts; people they know c
 
 ## 4. Bring the contacts in
 
-Follow `import-a-vcard-file` with their exported All Contacts, or a List of it. Their notes from the file go in as notes only they see. Ask before including photos.
+For a new group of their own, follow `import-a-vcard-file` with their exported All Contacts, or a List of it: their notes from the file go in as notes only they see, and ask before including photos. For Private Contacts, follow `add-phone-contacts`, which takes the whole file, photos and notes included.
 
 ## 5. Put it on their phones
 

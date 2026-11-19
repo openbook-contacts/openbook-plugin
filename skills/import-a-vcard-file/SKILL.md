@@ -5,11 +5,13 @@ description: Import a vCard file (.vcf) into an Openbook group: a List or All Co
 
 # Import a vCard file into a group
 
-Use this when the person attaches a `.vcf` and wants its people in a group: an organization's group, like a team's Contacts List becoming Riverside FC • Parents, or a group of their own in Personal. To keep their own contacts in Openbook as their address book, or share them with someone, follow `host-your-contacts`, which uses these steps. For Find people through contacts, which takes only names, numbers and emails, follow `add-phone-contacts`.
+Use this when the person attaches a `.vcf` and wants its people in a group: an organization's group, like a team's Contacts List becoming Riverside FC • Parents, or a group of their own in Personal, like Family & Friends. To keep their own contacts in Openbook as their address book, or share them with someone, follow `host-your-contacts`, which uses these steps.
+
+Their own phone's contacts, the people they know, go to **Private Contacts**, and only with `add-phone-contacts` (`add_to_private_contacts`), which keeps each contact whole, photos and all, and leaves out Openbook's own cards by itself. Private Contacts is one group, whatever it's called now: `my_access` marks it `private_contacts: true`. Never offer it beside another name for it, and never import into it with `import_contacts`, which refuses it.
 
 ## 1. Where they go
 
-Call `my_access`, agree on the group, and set its field rules first: a new group shows only Notes until they're set, and everyone with access sees what the rules show. Importing takes being an owner of the directory, as the person is of their own groups; with add access alone, add people one at a time with `add_contact`.
+Call `my_access`, agree on the group, any but Private Contacts, and set its field rules first: a new group shows only Notes until they're set, and everyone with access sees what the rules show. Importing takes being an owner of the directory, as the person is of their own groups; with add access alone, add people one at a time with `add_contact`.
 
 ## 2. Getting the file
 
@@ -28,7 +30,7 @@ A file holds one card per person, from `BEGIN:VCARD` to `END:VCARD`.
 - **Addresses (`ADR`):** the parts after the first two (street;city;region;postal code;country) joined with commas, `home` or `work`.
 - **Others:** `ORG` is `company`, `TITLE` is `title`, `BDAY` is `birthday` (a date like 1985-03-04, or --03-04 with no year), `URL` is `url`, and `X-SOCIALPROFILE` or `IMPP` is `social`.
 - **Photos (`PHOTO`):** base64 after `ENCODING=b`, or a `data:` address. A photo is a field Openbook keeps as each group's rule for Photo says, Hidden until set. Photos make a file large, so ask before including them.
-- **Notes (`NOTE`):** what the person wrote about someone for themselves. Put it in the contact's `note` in `import_contacts`, which only they see, never anyone else, owners included. Never send it as a field or with `add_note` unless they ask for others to read it.
+- **Notes (`NOTE`):** what the person wrote about someone for themselves. Put it in the contact's `note_only_you` in `import_contacts`, which only they see, never anyone else, owners included. The contact's `note` is for everyone the group's Notes rule shows notes to, so never put a file's note there, in a field or with `add_note`, unless they ask for others to read it.
 - **Leave out** Openbook's own cards, which carry Openbook's links (`X-SOCIALPROFILE;type=openbook`) and their groups in the company (`ORG:Coaches` or `ORG:Acme Corp • Coaches`), or read “Openbook”, and cards that are only a List (`X-ADDRESSBOOKSERVER-KIND:group`).
 
 ## 4. Check and confirm

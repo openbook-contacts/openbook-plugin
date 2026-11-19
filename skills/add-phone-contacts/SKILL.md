@@ -1,11 +1,11 @@
 ---
 name: add-phone-contacts
-description: Bring the person's own phone contacts into Openbook with Find people through contacts: from an iPhone's exported All Contacts file, a Google Contacts, Mac or Outlook export, or numbers they paste, so people they know can ask them for someone, and they can find people through people they know.
+description: Bring the person's own phone contacts into Openbook's Private Contacts with Find people through contacts: from an iPhone's exported All Contacts file, Openbook's own cards in it left out by Openbook, a Google Contacts, Mac or Outlook export, or numbers they paste, so people they know can ask them for someone, and they can find people through people they know.
 ---
 
 # Add the contacts on their phone
 
-Find people through contacts is how someone's own contacts come into Openbook. It's what lets them find people through people they know (`find-through-people-you-know`), and lets people they know ask them for a contact. It keeps each contact whole, every name, number, email, address, date, related name, profile, note and photo, in Private Contacts, whose history keeps what was sent for each. To make their contacts a group to share with someone, follow `host-your-contacts` instead.
+Find people through contacts is how someone's own contacts come into Openbook. It's what lets them find people through people they know (`find-through-people-you-know`), and lets people they know ask them for a contact. It keeps each contact whole, every name, number, email, address, date, related name, profile, note and photo, in Private Contacts, whose history keeps what was sent for each. It's the one way into Private Contacts, one group whatever it's called now (`private_contacts: true` in `my_access`): never offer it beside another name for it, and never use `import_contacts` for it, which refuses it. To make their contacts a group to share with someone, follow `host-your-contacts` instead.
 
 1. **Explain first, in these terms:** nobody sees their contacts; people they know can ask them for one when they're looking for someone; nothing is shared unless they say yes. Their contacts go into Private Contacts, a group of their own that stays off their phones until they show it, its fields hidden from anyone they share it with until they open them. What they send passes through this app's provider on its way to Openbook.
 2. **Get the file.**
